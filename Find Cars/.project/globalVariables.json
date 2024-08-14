@@ -1,0 +1,10 @@
+[
+  {
+    "Constant": true,
+    "Name": "MAX_PRICE_LESS_THAN_MIN_PRICE_MSG",
+    "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+    "UnresolvedTypeFullyQualifiedName": null,
+    "Expression": "\"Maximum price is less than minimum price\"",
+    "IsLiteral": false
+  }
+]
