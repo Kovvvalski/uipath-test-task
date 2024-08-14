@@ -53,6 +53,7 @@
         "truncateMultipleSpaces": false,
         "validate": {
           "required": true,
+          "max": 999999,
           "min": 0
         },
         "key": "minimumPrice",
@@ -67,7 +68,8 @@
         "truncateMultipleSpaces": false,
         "validate": {
           "required": true,
-          "min": 0
+          "min": 0,
+          "max": 999999
         },
         "key": "maximumPrice",
         "type": "number",
