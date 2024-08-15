@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="NavigateToAv" this:NavigateToAv.pagesToShow="3" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="NavigateToAv" this:NavigateToAv.pagesToShow="3" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="brand" Type="InArgument(x:String)">
       <x:Property.Attributes>
@@ -21,11 +21,12 @@
       </x:Property.Attributes>
     </x:Property>
     <x:Property Name="pagesToShow" Type="InArgument(x:Int32)" />
+    <x:Property Name="cars" Type="InOutArgument(sd:DataTable)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>848.8,1546.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>848.8,1594.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>NavigateToAv_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -66,6 +67,10 @@
       <x:String>System.Reflection</x:String>
       <x:String>System.Linq.Expressions</x:String>
       <x:String>System.Numerics</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>System.Xml.Serialization</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -128,9 +133,11 @@
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="NavigateToAvAndSetCriteria" sap:VirtualizedContainerService.HintSize="747.2,1481.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="NavigateToAvAndSetCriteria" sap:VirtualizedContainerService.HintSize="772,1529.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="counter">
         <Variable.Default>
@@ -143,20 +150,24 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Объявления о продаже автомобилей в Беларуси. Купить или продать автомобиль с пробе" sap:VirtualizedContainerService.HintSize="684.8,1392.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Always" ScopeGuid="81ed1bdf-6e05-40ee-9c34-3b5058be5a06" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Объявления о продаже автомобилей в Беларуси. Купить или продать автомобиль с пробе" sap:VirtualizedContainerService.HintSize="709.6,1440.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Always" ScopeGuid="81ed1bdf-6e05-40ee-9c34-3b5058be5a06" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="651.2,1152.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="555.2,1200.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
+              <Variable x:TypeArguments="x:Int32" Name="currentIndex" />
+            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click brand button" sap:VirtualizedContainerService.HintSize="588.8,56.8" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="81ed1bdf-6e05-40ee-9c34-3b5058be5a06" Version="V3">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click brand button" sap:VirtualizedContainerService.HintSize="492.8,56.8" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="81ed1bdf-6e05-40ee-9c34-3b5058be5a06" Version="V3">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://cars.av.by/" DesignTimeRectangle="210, 758, 83, 25" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl class='dropdown-floatlabel__value' parentname='p-6-0-2-brand' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='dropdown-floatlabel__value' parentname='p-6-0-2-brand' tag='SPAN' type='' aaname=' Марка' check:innerText='Марка' /&gt;" Guid="b0fd8317-f8fe-4f2e-9397-8089e9b04362" ImageBase64="" InformativeScreenshot="a1d619f430d74ee03625b21eaa5d2d5c.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Объявления о продаже автомобилей в Беларуси. Купить или продать автомобиль с пробегом, новый или б/у на Автомалиновке.' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
               </uix:NClick.Target>
@@ -177,7 +188,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NClick>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click brand" sap:VirtualizedContainerService.HintSize="588.8,56.8" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="81ed1bdf-6e05-40ee-9c34-3b5058be5a06" Version="V3">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click brand" sap:VirtualizedContainerService.HintSize="492.8,56.8" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="81ed1bdf-6e05-40ee-9c34-3b5058be5a06" Version="V3">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://cars.av.by/" DesignTimeRectangle="185, 633, 318, 48" DesignTimeScaleFactor="1.25" ElementType="Button" FullSelectorArgument="[string.Format(&quot;&lt;webctrl aaname='{0}' class='dropdown__listbutton' tag='BUTTON' /&gt;&quot;, brand)]" FuzzySelectorArgument="[string.Format(&quot;&lt;webctrl aaname='{0}' class='dropdown__listbutton' tag='BUTTON' type='button' check:innerText='{0}' /&gt;&quot;, brand)]" Guid="4fc1b4af-f738-413e-ba4d-1b8e178ba352" ImageBase64="" InformativeScreenshot="488c0af1644211428fdcbbd70ab96d34.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Объявления о продаже автомобилей в Беларуси. Купить или продать автомобиль с пробегом, новый или б/у на Автомалиновке.' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
               </uix:NClick.Target>
@@ -198,11 +209,11 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NClick>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click model button" sap:VirtualizedContainerService.HintSize="588.8,56.8" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="81ed1bdf-6e05-40ee-9c34-3b5058be5a06" Version="V3">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click model button" sap:VirtualizedContainerService.HintSize="492.8,56.8" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="81ed1bdf-6e05-40ee-9c34-3b5058be5a06" Version="V3">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://cars.av.by/" DesignTimeRectangle="580, 425, 352, 55" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl parentname='p-6-0-3-model' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentname='p-6-0-3-model' tag='SPAN' type='' class='dropdown-floatlabel__box' aaname='' check:innerText='Модель&amp;#xD;&amp;#xA;Модель' /&gt;" Guid="7ef61b94-1d47-4965-a96a-7bf08998fa71" ImageBase64="" InformativeScreenshot="0ff92d4319a1cd637132e8a2b0132384.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Объявления о продаже автомобилей в Беларуси. Купить или продать автомобиль с пробегом, новый или б/у на Автомалиновке.' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                       <uix:Target DesignTimeRectangle="580, 443, 97, 25" ElementType="Text" FullSelectorArgument="&lt;webctrl class='dropdown-floatlabel__value' parentname='p-6-0-3-model' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='dropdown-floatlabel__value' parentname='p-6-0-3-model' tag='SPAN' type='' aaname=' Модель' check:innerText='Модель' /&gt;" Guid="2137e74d-2f8e-4cd3-8ae2-5a01bd0e50cf" ImageBase64="" SearchSteps="Selector, FuzzySelector" />
                     </scg:List>
                   </uix:TargetAnchorable.Anchors>
@@ -225,7 +236,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NClick>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click model" sap:VirtualizedContainerService.HintSize="588.8,56.8" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="81ed1bdf-6e05-40ee-9c34-3b5058be5a06" Version="V3">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click model" sap:VirtualizedContainerService.HintSize="492.8,56.8" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="81ed1bdf-6e05-40ee-9c34-3b5058be5a06" Version="V3">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://cars.av.by/" DesignTimeRectangle="562, 576, 318, 47" DesignTimeScaleFactor="1.25" ElementType="Button" FullSelectorArgument="[string.Format(&quot;&lt;webctrl aaname='{0}' class='dropdown__listbutton' tag='BUTTON' /&gt;&quot;, model)]" FuzzySelectorArgument="[string.Format(&quot;&lt;webctrl aaname='{0}' class='dropdown__listbutton' tag='BUTTON' type='button' check:innerText='{0}' /&gt;&quot;, model)]" Guid="3307bfbd-a57b-4192-91a6-051ad979ac47" ImageBase64="" InformativeScreenshot="583888c4851ef184268033916820c571.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Объявления о продаже автомобилей в Беларуси. Купить или продать автомобиль с пробегом, новый или б/у на Автомалиновке.' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
               </uix:NClick.Target>
@@ -246,11 +257,11 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NClick>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'USD'" sap:VirtualizedContainerService.HintSize="588.8,56.8" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="81ed1bdf-6e05-40ee-9c34-3b5058be5a06" Version="V3">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'USD'" sap:VirtualizedContainerService.HintSize="492.8,56.8" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="81ed1bdf-6e05-40ee-9c34-3b5058be5a06" Version="V3">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://cars.av.by/" DesignTimeRectangle="862, 520, 58, 25" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl class='dropdown-floatlabel__value' parentname='p-10-price_currency' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl class='dropdown-floatlabel__value' parentname='p-10-price_currency' tag='SPAN' type='' aaname=' USD' check:innerText='USD' /&gt;" Guid="816e01b7-fb5e-4fa2-888f-f0e050925ad7" ImageBase64="" InformativeScreenshot="ca2b5040ce06bd3b27abaafeca4ccdae.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Объявления о продаже автомобилей в Беларуси. Купить или продать автомобиль с пробегом, новый или б/у на Автомалиновке.' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4">
                   <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                       <uix:Target DesignTimeRectangle="843, 492, 96, 55" ElementType="Button" FullSelectorArgument="&lt;webctrl name='p-10-price_currency' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl name='p-10-price_currency' tag='BUTTON' type='button' class='dropdown__control dropdown__control--active dropdown-floatlabel' aaname='USD' check:innerText='Валюта&amp;#xD;&amp;#xA;USD' /&gt;" Guid="111b7d6d-3896-40fc-9105-ede209de202d" ImageBase64="" SearchSteps="FuzzySelector" />
                     </scg:List>
                   </uix:TargetAnchorable.Anchors>
@@ -273,7 +284,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NClick>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'BYN'" sap:VirtualizedContainerService.HintSize="588.8,56.8" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="81ed1bdf-6e05-40ee-9c34-3b5058be5a06" Version="V3">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'BYN'" sap:VirtualizedContainerService.HintSize="492.8,56.8" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="81ed1bdf-6e05-40ee-9c34-3b5058be5a06" Version="V3">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://cars.av.by/" DesignTimeRectangle="843, 596, 338, 47" DesignTimeScaleFactor="1.25" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='BYN' class='dropdown__listbutton' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='BYN' class='dropdown__listbutton' tag='BUTTON' type='button' check:innerText='BYN' /&gt;" Guid="7a0b8a82-89bf-4245-9c81-5e13a4cc98fb" ImageBase64="" InformativeScreenshot="33c683e990e72d97e9904d25184a6398.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Объявления о продаже автомобилей в Беларуси. Купить или продать автомобиль с пробегом, новый или б/у на Автомалиновке.' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" />
               </uix:NClick.Target>
@@ -294,11 +305,11 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NClick>
-            <uix:NTypeInto ActivateBefore="True" AlterIfDisabled="{x:Null}" ClickBeforeMode="Single" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DeselectAfter="{x:Null}" DisplayName="Type Into From" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="588.8,56.8" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InScope="{x:Null}" InUiElement="{x:Null}" OutUiElement="{x:Null}" ScopeIdentifier="81ed1bdf-6e05-40ee-9c34-3b5058be5a06" SecureText="{x:Null}" Text="[minPrice.AsText]" Timeout="{x:Null}" Version="V3">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into From" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="492.8,56.8" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="81ed1bdf-6e05-40ee-9c34-3b5058be5a06" Text="[minPrice.AsText]" Version="V3">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="https://cars.av.by/" DesignTimeRectangle="580, 428, 85, 27" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='richinput-control__value' aaname='' /&gt;" Guid="e5769cf2-a268-40d0-834c-751ad3c35e61" ImageBase64="" InformativeScreenshot="82aaade45a6513a5f16f0a98d82d2e5f.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Объявления о продаже автомобилей в Беларуси. Купить или продать автомобиль с пробегом, новый или б/у на Автомалиновке.' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                       <uix:Target DesignTimeRectangle="580, 413, 122, 55" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='__next' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='__next' tag='LABEL' type='' class='richinput-control__box' aaname='' check:innerText='Цена от' /&gt;" Guid="f39f6da8-d6e0-4cfd-ba7d-b305558ed497" SearchSteps="FuzzySelector" />
                     </scg:List>
                   </uix:TargetAnchorable.Anchors>
@@ -321,11 +332,11 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NTypeInto>
-            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into To" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="588.8,56.8" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="81ed1bdf-6e05-40ee-9c34-3b5058be5a06" Text="[maxPrice.AsText]" Version="V3">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into To" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="492.8,56.8" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="81ed1bdf-6e05-40ee-9c34-3b5058be5a06" Text="[maxPrice.AsText]" Version="V3">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="https://cars.av.by/" DesignTimeRectangle="721, 428, 84, 27" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl idx='2' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl class='richinput-control__value' tag='INPUT' type='text' aaname='' /&gt;" Guid="5352fe69-be5e-4889-aecd-43033405ed9f" ImageBase64="" InformativeScreenshot="e05f00455f28c3124503e6cc60f85a72.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Объявления о продаже автомобилей в Беларуси. Купить или продать автомобиль с пробегом, новый или б/у на Автомалиновке.' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                       <uix:Target DesignTimeRectangle="721, 413, 122, 55" ElementType="Text" FullSelectorArgument="&lt;webctrl idx='2' parentid='__next' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='__next' tag='LABEL' class='richinput-control__box' aaname='' check:innerText='до' /&gt;" Guid="98ca7a48-74c2-4ba8-b9dd-ae445ac7713a" SearchSteps="FuzzySelector" />
                     </scg:List>
                   </uix:TargetAnchorable.Anchors>
@@ -348,7 +359,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NTypeInto>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Show Items" sap:VirtualizedContainerService.HintSize="588.8,56.8" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="81ed1bdf-6e05-40ee-9c34-3b5058be5a06" Version="V3">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Show Items" sap:VirtualizedContainerService.HintSize="492.8,56.8" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="81ed1bdf-6e05-40ee-9c34-3b5058be5a06" Version="V3">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://cars.av.by/" DesignTimeRectangle="982, 638, 309, 52" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Показать 1425 объявлений' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='A' type='' class='button button--secondary button--block' /&gt;" Guid="f261fda1-c87d-41d0-94e0-e3cd0a4b5899" ImageBase64="" InformativeScreenshot="0f5ce28699eecf3a53dcaf8d5f8097d9.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Объявления о продаже автомобилей в Беларуси. Купить или продать автомобиль с пробегом, новый или б/у на Автомалиновке.' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
               </uix:NClick.Target>
@@ -369,7 +380,37 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NClick>
-            <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="While counter &lt; pagesToShow" sap:VirtualizedContainerService.HintSize="588.8,551.2" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+            <uix:NCheckState DisplayName="Check App State 'Ничего не найдено'" EnableIfNotExists="False" sap:VirtualizedContainerService.HintSize="492.8,494.4" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="81ed1bdf-6e05-40ee-9c34-3b5058be5a06" Timeout="2" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="449.6,204" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Throw Exception="[New Exception(&quot;No cars found by given parameters&quot;)]" sap:VirtualizedContainerService.HintSize="387.2,115.2" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="449.6,106.4" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://cars.av.by/" DesignTimeRectangle="1057, 515, 234, 52" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Ничего не найдено' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Ничего не найдено' tag='A' type='' class='button button--secondary button--block disabled' check:innerText='Ничего не найдено' /&gt;" Guid="8ef882fe-153c-413c-a1c7-2c3e642aff2a" ImageBase64="" InformativeScreenshot="2bd8df212decc18c29cb23df7287dc35.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Объявления о продаже автомобилей в Беларуси. Купить или продать автомобиль с пробегом, новый или б/у на Автомалиновке.' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target DesignTimeRectangle="601, 527, 198, 30" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='Сохранить поиск' parentid='__next' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Сохранить поиск' parentid='__next' tag='BUTTON' type='button' class='button button--link button--icon' check:innerText='Сохранить поиск' /&gt;" Guid="45f69598-7bed-4c67-9c3a-1078401974c0" ImageBase64="" SearchSteps="Selector, FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+            <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[counter &lt; pagesToShow]" DisplayName="While counter &lt; pagesToShow" sap:VirtualizedContainerService.HintSize="492.8,56.8" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
               <ui:InterruptibleWhile.Body>
                 <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="555.2,412" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
@@ -438,16 +479,24 @@
                   </Assign>
                 </Sequence>
               </ui:InterruptibleWhile.Body>
-              <ui:InterruptibleWhile.Condition>
-                <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="counter &lt; pagesToShow" />
-              </ui:InterruptibleWhile.Condition>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:InterruptibleWhile>
+            <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[cars]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='price'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column1' Name='name'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column2' Name='link'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;true&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/row&gt;&lt;column exact='1' name='Column0' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='4' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column1' attr='fulltext' name2='Column2' attr2='href'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='h3' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='span' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="492.8,48" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="81ed1bdf-6e05-40ee-9c34-3b5058be5a06" Version="V3">
+              <uix:NExtractData.Target>
+                <uix:TargetAnchorable BrowserURL="https://cars.av.by/filter?brands[0][brand]=966&amp;brands[0][model]=988&amp;price_byn[max]=999999&amp;price_currency=1&amp;page=3" DesignTimeRectangle="185, -13826, 1131, 21661" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl class='listing__items' parentid='__next' tag='DIV' /&gt;" Guid="4b83f632-6701-485a-a6d1-f515c9635953" InformativeScreenshot="c0cb504791de9ab9d3b3dac380289b09.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='av.by' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+              </uix:NExtractData.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NExtractData>
           </Sequence>
         </ActivityAction>
       </uix:NApplicationCard.Body>
