@@ -1,0 +1,13 @@
+﻿{
+  "Name": "price_to",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "f8iYaUx0iUS7xtS_B04TKw",
+  "Reference": "LJxmx1ZB4UWobL9EWCZFdw/f8iYaUx0iUS7xtS_B04TKw",
+  "ParentRef": "LJxmx1ZB4UWobL9EWCZFdw/UM4-XzSkJ0ySVgitvJShKg",
+  "Created": "2024-08-17T14:11:24.7145405Z",
+  "Updated": "2024-08-17T14:11:24.7145405Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=24.10.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

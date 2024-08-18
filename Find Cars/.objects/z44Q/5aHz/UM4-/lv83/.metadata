@@ -1,0 +1,13 @@
+﻿{
+  "Name": "USD",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "lv83_KER6Ue2-rk597zRKA",
+  "Reference": "LJxmx1ZB4UWobL9EWCZFdw/lv83_KER6Ue2-rk597zRKA",
+  "ParentRef": "LJxmx1ZB4UWobL9EWCZFdw/UM4-XzSkJ0ySVgitvJShKg",
+  "Created": "2024-08-17T14:43:47.3188371Z",
+  "Updated": "2024-08-17T14:43:47.3188371Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=24.10.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

@@ -1,0 +1,16 @@
+﻿{
+  "Name": "price_from",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "FGkJG-5gAUiq0_kSbfN1wg",
+  "Reference": "LJxmx1ZB4UWobL9EWCZFdw/FGkJG-5gAUiq0_kSbfN1wg",
+  "ParentRef": "LJxmx1ZB4UWobL9EWCZFdw/UM4-XzSkJ0ySVgitvJShKg",
+  "Created": "2024-08-17T14:11:24.5440762Z",
+  "Updated": "2024-08-17T14:41:26.6232321Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=24.10.3.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=24.10.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

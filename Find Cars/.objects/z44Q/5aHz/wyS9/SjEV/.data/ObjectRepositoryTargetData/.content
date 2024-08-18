@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="fOldME86rkGlm2lTk5ekZg" Reference="LJxmx1ZB4UWobL9EWCZFdw/SjEVWCfgDUK1L-ocSyWkhw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="https://cars.av.by/apel/sad" CVScreenId="ec66f2a5-e01c-48b4-8bf3-0d4f339f35d6" CvTextArea="430, 337, 481, 44" CvType="AnyWordGroup" DesignTimeRectangle="431, 335, 644, 43" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='H1' aaname='Страница не найдена' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='board__title' /&gt;" Guid="01f1db8a-b58f-465a-a5a9-8bf000bbfb56" ImageBase64="" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Страница не найдена' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="0da6060ca0dc3aef479f5c2def5d082b.png" xmlns="">0FNyluaXscUy5cGpFItlVsA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">None</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

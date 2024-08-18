@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="FgzUo-rkS0u1_szbNuv2dQ" Reference="LJxmx1ZB4UWobL9EWCZFdw/4no7-5IN1kGjsYomdPTdIA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="https://cars.av.by/filter?brands[0][brand]=966&amp;brands[0][model]=5815&amp;price_byn[min]=1200&amp;price_byn[max]=122311&amp;price_currency=1" DesignTimeRectangle="1047, 635, 211, 47" DesignTimeScaleFactor="1.125" ElementType="Button" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='submit' class='button button--secondary button--block' aaname='Ничего не найдено' check:innerText='Ничего не найдено' /&gt;" Guid="dd5cfd63-1176-4ad7-aee7-cbc37241840c" ImageBase64="" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Объявления о продаже автомобилей в Беларуси. Купить или продать автомобиль с пробегом, новый или б/у на Автомалиновке.' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="308766d04d1da87dd896c74fce7fcf21.png" xmlns="">0tHhcFYmxwkiQgMkRES5CWQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">None</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

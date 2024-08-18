@@ -1,0 +1,13 @@
+﻿{
+  "Name": "show_more",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "uB8yNHoejECqRq77YGeruA",
+  "Reference": "LJxmx1ZB4UWobL9EWCZFdw/uB8yNHoejECqRq77YGeruA",
+  "ParentRef": "LJxmx1ZB4UWobL9EWCZFdw/UM4-XzSkJ0ySVgitvJShKg",
+  "Created": "2024-08-17T14:38:47.1700923Z",
+  "Updated": "2024-08-17T14:38:47.1700923Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=24.10.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

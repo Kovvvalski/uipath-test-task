@@ -6,5 +6,85 @@
     "UnresolvedTypeFullyQualifiedName": null,
     "Expression": "\"Maximum price is less than minimum price\"",
     "IsLiteral": false
+  },
+  {
+    "Constant": true,
+    "Name": "AV_TEMPLATE",
+    "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+    "UnresolvedTypeFullyQualifiedName": null,
+    "Expression": "\"https://cars.av.by\"",
+    "IsLiteral": false
+  },
+  {
+    "Constant": true,
+    "Name": "SHEET_NAME",
+    "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+    "UnresolvedTypeFullyQualifiedName": null,
+    "Expression": "\"Sheet1\"",
+    "IsLiteral": false
+  },
+  {
+    "Constant": true,
+    "Name": "PATH_TO_FILE_TEMPLATE",
+    "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+    "UnresolvedTypeFullyQualifiedName": null,
+    "Expression": "\"data\"",
+    "IsLiteral": false
+  },
+  {
+    "Constant": true,
+    "Name": "FILE_EXTENSION",
+    "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+    "UnresolvedTypeFullyQualifiedName": null,
+    "Expression": "\".xlsx\"",
+    "IsLiteral": false
+  },
+  {
+    "Constant": true,
+    "Name": "PRICE_COLUMN",
+    "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+    "UnresolvedTypeFullyQualifiedName": null,
+    "Expression": "\"price\"",
+    "IsLiteral": false
+  },
+  {
+    "Constant": true,
+    "Name": "CHAR_160",
+    "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+    "UnresolvedTypeFullyQualifiedName": null,
+    "Expression": "\" \"",
+    "IsLiteral": false
+  },
+  {
+    "Constant": true,
+    "Name": "EMPTY_STR",
+    "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+    "UnresolvedTypeFullyQualifiedName": null,
+    "Expression": "\"\"",
+    "IsLiteral": false
+  },
+  {
+    "Constant": true,
+    "Name": "NAME_COLUMN",
+    "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+    "UnresolvedTypeFullyQualifiedName": null,
+    "Expression": "\"name\"",
+    "IsLiteral": false
+  },
+  {
+    "Constant": true,
+    "Name": "LINK_COLUMN",
+    "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+    "UnresolvedTypeFullyQualifiedName": null,
+    "Expression": "\"link\"",
+    "IsLiteral": false
+  },
+  {
+    "Constant": true,
+    "Name": "YES",
+    "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+    "UnresolvedTypeFullyQualifiedName": null,
+    "Expression": "\"Yes\"",
+    "IsLiteral": false
   }
 ]

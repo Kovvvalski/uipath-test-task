@@ -6,6 +6,16 @@
       "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": null,
       "ConstantsSectionElementsOrder": [
+        "NAME_COLUMN&",
+        "LINK_COLUMN&",
+        "YES&",
+        "CHAR_160&",
+        "EMPTY_STR&",
+        "PRICE_COLUMN&",
+        "FILE_EXTENSION&",
+        "SHEET_NAME&",
+        "PATH_TO_FILE_TEMPLATE&",
+        "AV_TEMPLATE&",
         "MAX_PRICE_LESS_THAN_MIN_PRICE_MSG&"
       ],
       "AddedNamespaces": null
@@ -14,14 +24,29 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "maximumPrice&Sequence_1",
-        "minimumPrice&Sequence_1",
-        "model&Sequence_1",
-        "brand&Sequence_1"
+        "MaxPriceCar&Sequence_1",
+        "MinPriceCar&Sequence_1",
+        "NumberOfPages&Sequence_1",
+        "CurrentIndex&Sequence_1",
+        "Cars&Sequence_1",
+        "MaximumPrice&Sequence_1",
+        "MinimumPrice&Sequence_1",
+        "Model&Sequence_1",
+        "Brand&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [],
       "ConstantsSectionElementsOrder": [
-        "MAX_PRICE_LESS_THAN_MIN_PRICE_MSG&bf58bc0f-443f-4975-93cf-2801b3a5721c"
+        "NAME_COLUMN&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "LINK_COLUMN&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "YES&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "CHAR_160&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "EMPTY_STR&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "MAX_PRICE_LESS_THAN_MIN_PRICE_MSG&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "AV_TEMPLATE&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "SHEET_NAME&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "PATH_TO_FILE_TEMPLATE&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "FILE_EXTENSION&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "PRICE_COLUMN&cfa1b690-a729-461f-ae00-96f2b7da83d1"
       ],
       "AddedNamespaces": null
     },
@@ -29,17 +54,60 @@
       "Path": "NavigateToAvAndGetData.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "TempStr&Sequence_14",
+        "currentIndex&Sequence_2",
+        "ExtractDataTable&Sequence_2",
         "counter&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
-        "pagesToShow",
-        "maxPrice",
-        "minPrice",
-        "model",
-        "brand"
+        "in_Brand",
+        "in_Model",
+        "in_MinPrice",
+        "in_MaxPrice",
+        "in_PagesToShow",
+        "io_Cars"
       ],
       "ConstantsSectionElementsOrder": [
-        "MAX_PRICE_LESS_THAN_MIN_PRICE_MSG&bf58bc0f-443f-4975-93cf-2801b3a5721c"
+        "YES&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "LINK_COLUMN&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "NAME_COLUMN&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "EMPTY_STR&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "CHAR_160&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "MAX_PRICE_LESS_THAN_MIN_PRICE_MSG&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "AV_TEMPLATE&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "SHEET_NAME&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "PATH_TO_FILE_TEMPLATE&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "FILE_EXTENSION&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "PRICE_COLUMN&cfa1b690-a729-461f-ae00-96f2b7da83d1"
+      ],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "ShowMinAndMaxPriceCars.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "Button&Sequence_1",
+        "Url&Sequence_1",
+        "MaxPriceCarNamePrice&Sequence_1",
+        "MinPriceCarNamePrice&Sequence_1",
+        "UserChoice&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "MaxPriceCar",
+        "MinPriceCar"
+      ],
+      "ConstantsSectionElementsOrder": [
+        "YES&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "NAME_COLUMN&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "LINK_COLUMN&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "MAX_PRICE_LESS_THAN_MIN_PRICE_MSG&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "AV_TEMPLATE&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "SHEET_NAME&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "PATH_TO_FILE_TEMPLATE&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "FILE_EXTENSION&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "PRICE_COLUMN&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "CHAR_160&cfa1b690-a729-461f-ae00-96f2b7da83d1",
+        "EMPTY_STR&cfa1b690-a729-461f-ae00-96f2b7da83d1"
       ],
       "AddedNamespaces": null
     }

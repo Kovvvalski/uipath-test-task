@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="HXckLJ6yGkWH8yIhXNfodA" Reference="LJxmx1ZB4UWobL9EWCZFdw/FGkJG-5gAUiq0_kSbfN1wg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="https://cars.av.by/opel/astra" DesignTimeRectangle="618, 575, 76, 24" DesignTimeScaleFactor="1.125" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='richinput-control__value' aaname='' /&gt;" Guid="e135c127-ab61-4ac7-8c8d-462ef91a1674" ImageBase64="" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Купить Opel Astra | 1417 объявлений о продаже на av.by | Цены, характеристики, фото.' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target DesignTimeRectangle="618, 562, 110, 49" ElementType="Text" FullSelectorArgument="&lt;webctrl parentid='__next' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='__next' tag='LABEL' type='' class='richinput-control__box' aaname='' check:innerText='Цена от' /&gt;" Guid="63404a97-3ae2-4e2b-90c3-f8b13ea2bad1" SearchSteps="FuzzySelector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="84d8ae4bd49d9093962d3d9760300622.png" xmlns="">0pCmHiNJ8AkqP9WjXS3NBnA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">None</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

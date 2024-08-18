@@ -1,0 +1,16 @@
+﻿{
+  "Name": "show_items",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "Ro0Y78ap3U-rMPJ6247XEw",
+  "Reference": "LJxmx1ZB4UWobL9EWCZFdw/Ro0Y78ap3U-rMPJ6247XEw",
+  "ParentRef": "LJxmx1ZB4UWobL9EWCZFdw/UM4-XzSkJ0ySVgitvJShKg",
+  "Created": "2024-08-17T14:27:51.6614484Z",
+  "Updated": "2024-08-17T14:43:47.1390821Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=24.10.3.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=24.10.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
