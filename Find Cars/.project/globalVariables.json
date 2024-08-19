@@ -49,22 +49,6 @@
   },
   {
     "Constant": true,
-    "Name": "CHAR_160",
-    "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
-    "UnresolvedTypeFullyQualifiedName": null,
-    "Expression": "\" \"",
-    "IsLiteral": false
-  },
-  {
-    "Constant": true,
-    "Name": "EMPTY_STR",
-    "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
-    "UnresolvedTypeFullyQualifiedName": null,
-    "Expression": "\"\"",
-    "IsLiteral": false
-  },
-  {
-    "Constant": true,
     "Name": "NAME_COLUMN",
     "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
     "UnresolvedTypeFullyQualifiedName": null,
@@ -85,6 +69,14 @@
     "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
     "UnresolvedTypeFullyQualifiedName": null,
     "Expression": "\"Yes\"",
+    "IsLiteral": false
+  },
+  {
+    "Constant": true,
+    "Name": "NON_BREAKING_SPACE",
+    "TypeFullyQualifiedName": "System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+    "UnresolvedTypeFullyQualifiedName": null,
+    "Expression": "\" \"",
     "IsLiteral": false
   }
 ]

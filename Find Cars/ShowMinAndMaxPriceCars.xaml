@@ -1,12 +1,13 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="ShowMinAndMaxPriceCars" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="MinPriceCar" Type="InArgument(sd:DataRow)" />
-    <x:Property Name="MaxPriceCar" Type="InArgument(sd:DataRow)" />
+    <x:Property Name="in_minPriceCar" Type="InArgument(sd:DataRow)" />
+    <x:Property Name="in_maxPriceCar" Type="InArgument(sd:DataRow)" />
+    <x:Property Name="in_browser" Type="InArgument(ui:UiElement)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>848.8,1187.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>848.8,1780.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ShowMinAndMaxPriceCars_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -105,43 +106,45 @@
       <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Persistence.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ShowMinAndMaxPriceCars" sap:VirtualizedContainerService.HintSize="512,1122.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ShowMinAndMaxPriceCars" sap:VirtualizedContainerService.HintSize="592,1716" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="UserChoice" />
-      <Variable x:TypeArguments="x:String" Name="MinPriceCarNamePrice" />
-      <Variable x:TypeArguments="x:String" Name="MaxPriceCarNamePrice" />
-      <Variable x:TypeArguments="x:String" Name="Url" />
-      <Variable x:TypeArguments="x:String" Name="Button" />
+      <Variable x:TypeArguments="x:String" Name="userChoice" />
+      <Variable x:TypeArguments="x:String" Name="minPriceCarNamePrice" />
+      <Variable x:TypeArguments="x:String" Name="maxPriceCarNamePrice" />
+      <Variable x:TypeArguments="x:String" Name="url" />
+      <Variable x:TypeArguments="x:String" Name="button" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="449.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap:VirtualizedContainerService.HintSize="529.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[MinPriceCarNamePrice]</OutArgument>
+        <OutArgument x:TypeArguments="x:String">[minPriceCarNamePrice]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[MinPriceCar(NAME_COLUMN).ToString + " - " + MinPriceCar(PRICE_COLUMN).ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String">[in_minPriceCar(NAME_COLUMN).ToString + " - " + in_minPriceCar(PRICE_COLUMN).ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="449.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign sap:VirtualizedContainerService.HintSize="529.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[MaxPriceCarNamePrice]</OutArgument>
+        <OutArgument x:TypeArguments="x:String">[maxPriceCarNamePrice]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[MaxPriceCar(NAME_COLUMN).ToString + " - " + MaxPriceCar(PRICE_COLUMN).ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String">[in_maxPriceCar(NAME_COLUMN).ToString + " - " + in_maxPriceCar(PRICE_COLUMN).ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:InputDialog OptionsString="{x:Null}" DisplayName="Input dialog" sap:VirtualizedContainerService.HintSize="449.6,327.2" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Choose car:" Options="[{MinPriceCarNamePrice, MaxPriceCarNamePrice}]" Title="Cars with minimum and maximum prices">
+    <ui:InputDialog OptionsString="{x:Null}" DisplayName="Input dialog" sap:VirtualizedContainerService.HintSize="529.6,327.2" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Choose car:" Options="[{minPriceCarNamePrice, maxPriceCarNamePrice}]" Title="Cars with minimum and maximum prices">
       <ui:InputDialog.Result>
-        <OutArgument x:TypeArguments="x:String">[UserChoice]</OutArgument>
+        <OutArgument x:TypeArguments="x:String">[userChoice]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
-    <ui:IfElseIfV2 sap2010:Annotation.AnnotationText="Определяем выбор пользователя для перехода к соотетствующему автомобилю" Condition="[UserChoice=EMPTY_STR]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="449.6,132.8" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
+    <ui:IfElseIfV2 sap2010:Annotation.AnnotationText="Определяем выбор пользователя для перехода к соотетствующему автомобилю" Condition="[String.IsNullOrEmpty(userChoice)]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="529.6,716.8" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
       <ui:IfElseIfV2.Else>
         <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="496,193.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
@@ -151,17 +154,17 @@
           </sap:WorkflowViewStateService.ViewState>
           <Assign sap:VirtualizedContainerService.HintSize="433.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_4">
             <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[Url]</OutArgument>
+              <OutArgument x:TypeArguments="x:String">[url]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[MaxPriceCar(LINK_COLUMN).ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String">[in_maxPriceCar(LINK_COLUMN).ToString]</InArgument>
             </Assign.Value>
           </Assign>
         </Sequence>
       </ui:IfElseIfV2.Else>
       <ui:IfElseIfV2.ElseIfs>
         <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
-          <ui:IfElseIfBlock BlockType="ElseIf" Condition="[UserChoice=MinPriceCarNamePrice]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_1">
+          <ui:IfElseIfBlock BlockType="ElseIf" Condition="[userChoice=minPriceCarNamePrice]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_1">
             <ui:IfElseIfBlock.Then>
               <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,193.6" sap2010:WorkflowViewState.IdRef="Sequence_4">
                 <sap:WorkflowViewStateService.ViewState>
@@ -171,10 +174,10 @@
                 </sap:WorkflowViewStateService.ViewState>
                 <Assign sap:VirtualizedContainerService.HintSize="433.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_3">
                   <Assign.To>
-                    <OutArgument x:TypeArguments="x:String">[Url]</OutArgument>
+                    <OutArgument x:TypeArguments="x:String">[url]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[MinPriceCar(LINK_COLUMN).ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String">[in_minPriceCar(LINK_COLUMN).ToString]</InArgument>
                   </Assign.Value>
                 </Assign>
               </Sequence>
@@ -184,7 +187,7 @@
       </ui:IfElseIfV2.ElseIfs>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
@@ -201,23 +204,24 @@
         </Sequence>
       </ui:IfElseIfV2.Then>
     </ui:IfElseIfV2>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge" sap:VirtualizedContainerService.HintSize="449.6,346.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="12110fd3-aa68-4b79-aaaa-ac7f73ebff46" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge" sap:VirtualizedContainerService.HintSize="529.6,356" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[in_browser]" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="12110fd3-aa68-4b79-aaaa-ac7f73ebff46" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,106.4" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,196" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
+            <uix:NGoToUrl DisplayName="Go To URL" sap:VirtualizedContainerService.HintSize="353.6,107.2" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="[url]" Version="V3" />
           </Sequence>
         </ActivityAction>
       </uix:NApplicationCard.Body>
       <uix:NApplicationCard.TargetApp>
-        <uix:TargetApp Area="-9, -9, 1938, 1048" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAWJQAAFiUBSVIk8AAAAQhJREFUWEftl9ENwjAMRDsCIzAKm8AGsAGMwEaMwgiMQP0qTkKy09YkfCDypJNKnFzckLTu0AnYmW6mh+nZUHjuTbOcTdHglmKOkINJnS6mjSlCfTLgdTJpLKvsYIkI0nGOTxIQ3Bhjmcsh49Kdi5oE8GYs+8ux1libczv9ylOcZ20CWsZaOYqBgKup9pg6ioHG9AR6Ar+XAG8wjtz9dS2y7SKdAEaKYSyy7UIxRymAiWKYi2y7UMxRCvCaxghjrkW2XaQTaE1PoCdQnEfHZ6kkq0ElWZiAilIqnm9xNDFHWJRSKis7KuOWK4HX+zdH9IieaFXvzWlxhXl66e9oJfYXnuEHyT8zDCPMjw3PbnWtNQAAAABJRU5ErkJggg==" InformativeScreenshot="bb643b19ebd9740055a906585cfa1fd7.png" Selector="&lt;html app='msedge.exe' title='Новая вкладка' /&gt;" Title="Новая вкладка" Url="[Url]" />
+        <uix:TargetApp Area="-9, -9, 1938, 1048" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAWJQAAFiUBSVIk8AAAAQhJREFUWEftl9ENwjAMRDsCIzAKm8AGsAGMwEaMwgiMQP0qTkKy09YkfCDypJNKnFzckLTu0AnYmW6mh+nZUHjuTbOcTdHglmKOkINJnS6mjSlCfTLgdTJpLKvsYIkI0nGOTxIQ3Bhjmcsh49Kdi5oE8GYs+8ux1libczv9ylOcZ20CWsZaOYqBgKup9pg6ioHG9AR6Ar+XAG8wjtz9dS2y7SKdAEaKYSyy7UIxRymAiWKYi2y7UMxRCvCaxghjrkW2XaQTaE1PoCdQnEfHZ6kkq0ElWZiAilIqnm9xNDFHWJRSKis7KuOWK4HX+zdH9IieaFXvzWlxhXl66e9oJfYXnuEHyT8zDCPMjw3PbnWtNQAAAABJRU5ErkJggg==" InformativeScreenshot="bb643b19ebd9740055a906585cfa1fd7.png" Selector="&lt;html app='msedge.exe' title='Новая вкладка' /&gt;" Title="Новая вкладка" Url="[url]" />
       </uix:NApplicationCard.TargetApp>
     </uix:NApplicationCard>
   </Sequence>

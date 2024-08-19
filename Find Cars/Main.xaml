@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="848.8,1700" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ufa="clr-namespace:UiPath.Forms.Activities;assembly=UiPath.Forms.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="848.8,2476.8" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ufa="clr-namespace:UiPath.Forms.Activities;assembly=UiPath.Forms.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -39,6 +39,7 @@
       <x:String>UiPath.Excel.Activities</x:String>
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -99,40 +100,41 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="518.4,1635.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="595.2,2412" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="Brand" />
-      <Variable x:TypeArguments="x:String" Name="Model" />
-      <Variable x:TypeArguments="x:Int32" Name="MinimumPrice" />
-      <Variable x:TypeArguments="x:Int32" Name="MaximumPrice" />
-      <Variable x:TypeArguments="sd:DataTable" Name="Cars" />
-      <Variable x:TypeArguments="x:Int32" Name="CurrentIndex" />
-      <Variable x:TypeArguments="x:Int32" Name="NumberOfPages" />
-      <Variable x:TypeArguments="sd:DataRow" Name="MinPriceCar" />
-      <Variable x:TypeArguments="sd:DataRow" Name="MaxPriceCar" />
+      <Variable x:TypeArguments="x:String" Name="brand" />
+      <Variable x:TypeArguments="x:String" Name="model" />
+      <Variable x:TypeArguments="x:Int32" Name="minimumPrice" />
+      <Variable x:TypeArguments="x:Int32" Name="maximumPrice" />
+      <Variable x:TypeArguments="sd:DataTable" Name="cars" />
+      <Variable x:TypeArguments="x:Int32" Name="currentIndex" />
+      <Variable x:TypeArguments="sd:DataRow" Name="minPriceCar" />
+      <Variable x:TypeArguments="sd:DataRow" Name="maxPriceCar" />
+      <Variable x:TypeArguments="x:Boolean" Default="False" Name="isDataProcessed" />
+      <Variable x:TypeArguments="ui:UiElement" Name="browser" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="456,56.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Starting process&quot;]">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="532.8,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Starting process&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ufa:ShowFormActivity Height="{x:Null}" InstanceName="{x:Null}" Left="{x:Null}" ShowInTaskbar="{x:Null}" ShowMargin="{x:Null}" Title="{x:Null}" Top="{x:Null}" TopMost="{x:Null}" Width="{x:Null}" WindowState="{x:Null}" DisplayName="Show Input Data Form" FormId="2c6b4391-8cb1-477d-b966-362f28296909" sap:VirtualizedContainerService.HintSize="456,219.2" sap2010:WorkflowViewState.IdRef="ShowFormActivity_2" IsAsync="False">
+    <ufa:ShowFormActivity Height="{x:Null}" InstanceName="{x:Null}" Left="{x:Null}" ShowInTaskbar="{x:Null}" ShowMargin="{x:Null}" Title="{x:Null}" Top="{x:Null}" TopMost="{x:Null}" Width="{x:Null}" WindowState="{x:Null}" DisplayName="Show Input Data Form" FormId="2c6b4391-8cb1-477d-b966-362f28296909" sap:VirtualizedContainerService.HintSize="532.8,219.2" sap2010:WorkflowViewState.IdRef="ShowFormActivity_2" IsAsync="False">
       <ufa:ShowFormActivity.Arguments>
-        <OutArgument x:TypeArguments="x:String" x:Key="brand">[Brand]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="model">[Model]</OutArgument>
-        <OutArgument x:TypeArguments="x:Int32" x:Key="minimumPrice">[MinimumPrice]</OutArgument>
-        <OutArgument x:TypeArguments="x:Int32" x:Key="maximumPrice">[MaximumPrice]</OutArgument>
-        <OutArgument x:TypeArguments="x:Int32" x:Key="numberOfPages">[NumberOfPages]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="brand">[brand]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="model">[model]</OutArgument>
+        <OutArgument x:TypeArguments="x:Int32" x:Key="minimumPrice">[minimumPrice]</OutArgument>
+        <OutArgument x:TypeArguments="x:Int32" x:Key="maximumPrice">[maximumPrice]</OutArgument>
       </ufa:ShowFormActivity.Arguments>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -141,7 +143,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ufa:ShowFormActivity>
-    <TryCatch DisplayName="Try To Get Data" sap:VirtualizedContainerService.HintSize="456,696" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try" sap:VirtualizedContainerService.HintSize="532.8,1282.4" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -149,28 +151,62 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="NavigateToAvAndGetData - Invoke Workflow File (NavigateToAvAndGetData.xaml)" sap:VirtualizedContainerService.HintSize="338.4,174.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="NavigateToAvAndGetData.xaml">
-          <ui:InvokeWorkflowFile.Arguments>
-            <InArgument x:TypeArguments="x:String" x:Key="in_Brand">[Brand]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_Model">[Model]</InArgument>
-            <InArgument x:TypeArguments="x:Int32" x:Key="in_MinPrice">[MinimumPrice]</InArgument>
-            <InArgument x:TypeArguments="x:Int32" x:Key="in_MaxPrice">[MaximumPrice]</InArgument>
-            <InArgument x:TypeArguments="x:Int32" x:Key="in_PagesToShow">[NumberOfPages]</InArgument>
-            <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_Cars">[Cars]</InOutArgument>
-          </ui:InvokeWorkflowFile.Arguments>
+        <Sequence sap:VirtualizedContainerService.HintSize="496,1019.2" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-        </ui:InvokeWorkflowFile>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow NavigateToAvAndGetData" sap:VirtualizedContainerService.HintSize="433.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="NavigateToAvAndGetData.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_brand">[brand]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_model">[model]</InArgument>
+              <InArgument x:TypeArguments="x:Int32" x:Key="in_minPrice">[minimumPrice]</InArgument>
+              <InArgument x:TypeArguments="x:Int32" x:Key="in_maxPrice">[maximumPrice]</InArgument>
+              <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_cars">[cars]</OutArgument>
+              <OutArgument x:TypeArguments="ui:UiElement" x:Key="out_browser">[browser]</OutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeWorkflowFile>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow SortItemsByPrice" sap:VirtualizedContainerService.HintSize="433.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="SortDataByPriceColumn.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_data">[cars]</InOutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow FindItemsWithMinAndMaxPrices" sap:VirtualizedContainerService.HintSize="433.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="FindItemsWithMinAndMaxPrices.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_data">[cars]</InArgument>
+              <OutArgument x:TypeArguments="sd:DataRow" x:Key="out_minPriceItem">[minPriceCar]</OutArgument>
+              <OutArgument x:TypeArguments="sd:DataRow" x:Key="out_maxPriceItem">[maxPriceCar]</OutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow WriteData" sap:VirtualizedContainerService.HintSize="433.6,206.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="WriteData.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_path">[PATH_TO_FILE_TEMPLATE + "/" + brand.ToLower+"_"+model.ToLower+"_"+minimumPrice.ToString+"-"+maximumPrice.ToString + FILE_EXTENSION]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_sheetName">[SHEET_NAME]</InArgument>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_data">[cars]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <Assign sap:VirtualizedContainerService.HintSize="433.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_4">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Boolean">[isDataProcessed]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="422.4,500" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="499.2,23.2" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -192,63 +228,40 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <Assign DisplayName="Sort Data Table By Price" sap:VirtualizedContainerService.HintSize="456,115.2" sap2010:WorkflowViewState.IdRef="Assign_1">
-      <Assign.To>
-        <OutArgument x:TypeArguments="sd:DataTable">[Cars]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[Cars.AsEnumerable() _
-    .OrderBy(Function(row) Convert.ToInt32(row.Field(Of String)(PRICE_COLUMN))) _
-    .CopyToDataTable()]</InArgument>
-      </Assign.Value>
+    <If Condition="[isDataProcessed]" DisplayName="If Data Processed" sap:VirtualizedContainerService.HintSize="532.8,481.6" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-    </Assign>
-    <Assign DisplayName="Define Min Price Car" sap:VirtualizedContainerService.HintSize="456,56.8" sap2010:WorkflowViewState.IdRef="Assign_2">
-      <Assign.To>
-        <OutArgument x:TypeArguments="sd:DataRow">[MinPriceCar]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="sd:DataRow">[Cars.Rows(0)]</InArgument>
-      </Assign.Value>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </Assign>
-    <Assign DisplayName="Define Max Price Car" sap:VirtualizedContainerService.HintSize="456,56.8" sap2010:WorkflowViewState.IdRef="Assign_3">
-      <Assign.To>
-        <OutArgument x:TypeArguments="sd:DataRow">[MaxPriceCar]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="sd:DataRow">[Cars.Rows(Cars.Rows.Count - 1)]</InArgument>
-      </Assign.Value>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </Assign>
-    <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[Cars]" DisplayName="Write Data To xlsx" sap:VirtualizedContainerService.HintSize="456,148" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="[SHEET_NAME]" WorkbookPath="[PATH_TO_FILE_TEMPLATE + &quot;/&quot; + brand.ToLower+&quot;_&quot;+model.ToLower+&quot;_&quot;+minimumPrice.ToString+&quot;-&quot;+maximumPrice.ToString + FILE_EXTENSION]">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:WriteRange>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ShowMinAndMaxPriceCars - Invoke Workflow File (ShowMinAndMaxPriceCars.xaml)" sap:VirtualizedContainerService.HintSize="456,197.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ShowMinAndMaxPriceCars.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="sd:DataRow" x:Key="MinPriceCar">[MinPriceCar]</InArgument>
-        <InArgument x:TypeArguments="sd:DataRow" x:Key="MaxPriceCar">[MaxPriceCar]</InArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,286.4" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow ShowMinAndMaxPriceCars" sap:VirtualizedContainerService.HintSize="353.6,197.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ShowMinAndMaxPriceCars.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="sd:DataRow" x:Key="in_minPriceCar">[MinPriceCar]</InArgument>
+              <InArgument x:TypeArguments="sd:DataRow" x:Key="in_maxPriceCar">[MaxPriceCar]</InArgument>
+              <InArgument x:TypeArguments="ui:UiElement" x:Key="in_browser">[browser]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="532.8,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Process finished&quot;]" />
   </Sequence>
 </Activity>
